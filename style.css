@@ -1,142 +1,279 @@
-/* Font Imports */
-@font-face {
-  font-family: "Noto Sans";
-  src: url("./assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf");
-  font-weight: 100 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Noto Sans";
-  src: url("./assets/fonts/NotoSans-Italic-VariableFont_wdth\,wght.ttf");
-  font-weight: 100 900;
-  font-style: italic;
-}
+/* Use a lightweight, system font stack to reduce payload */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
-  /* Neutral */
-  --neutral-900: hsl(227, 75%, 14%);
-  --neutral-800: hsl(226, 25%, 17%);
-  --neutral-700: hsl(225, 23%, 24%);
-  --neutral-600: hsl(226, 11%, 37%);
-  --neutral-300: hsl(0, 0%, 78%);
-  --neutral-200: hsl(217, 61%, 90%);
-  --neutral-100: hsl(0, 0%, 93%);
-  --neutral-0: hsl(200, 60%, 99%);
+	/* Neutral */
+	--neutral-900: hsl(227, 75%, 14%);
+	--neutral-800: hsl(226, 25%, 17%);
+	--neutral-700: hsl(225, 23%, 24%);
+	--neutral-600: hsl(226, 11%, 30%);
+	--neutral-300: hsl(0, 0%, 65%);
+	--neutral-200: hsl(217, 61%, 90%);
+	--neutral-100: hsl(220, 40%, 98%);
+	--neutral-0: hsl(0, 0%, 100%);
 
-  /* Red */
-  --red-400: hsl(3, 86%, 64%);
-  --red-500: hsl(3, 71%, 56%);
-  --red-700: hsl(3, 77%, 44%);
+	/* Red */
+	--red-400: hsl(3, 86%, 64%);
+	--red-500: hsl(3, 71%, 56%);
+	--red-700: hsl(3, 77%, 44%);
 
-  /* Gradient */
-  --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
-  --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+	/* Gradient */
+	--light-gradient: linear-gradient(180deg, #f0f4fd 0%, #f8fafc 100%);
+	--dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 
-  --font-family: "Noto Sans", sans-serif;
+	--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 body {
-  font-family: var(--font-family);
-  font-weight: 400;
-  background: var(--light-gradient);
-  color: var(--neutral-900);
-  height: 100vh;
+	font-family: var(--font-family);
+	font-weight: 400;
+	background: var(--light-gradient);
+	color: var(--neutral-900);
+	min-height: 100dvh;
+	line-height: 1.5;
+	font-size: 16px;
 }
 
 body[data-theme="dark"] {
-  background: var(--dark-gradient);
-  color: var(--neutral-0);
+	background: var(--dark-gradient);
+	color: var(--neutral-0);
 }
 
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding-inline: 24px;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-  border-radius: 24px;
-  margin-top: 48px;
-  background-color: var(--neutral-100);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 24px;
+	border-radius: 24px;
+	margin-top: 48px;
+	background-color: var(--neutral-0);
+	border: 1px solid hsl(220, 20%, 90%);
 }
 
 #toggle-theme-btn {
-  background-color: var(--neutral-200);
-  border: none;
-  padding: 8px 10px;
-  border-radius: 8px;
-  cursor: pointer;
+	background-color: var(--neutral-200);
+	border: none;
+	padding: 8px 10px;
+	border-radius: 8px;
+	cursor: pointer;
 }
 
 #toggle-theme-btn img {
-  filter: brightness(0) invert(0);
+	filter: brightness(0) invert(0);
 }
 
 body[data-theme="dark"] #toggle-theme-btn img {
-  filter: brightness(0) invert(1);
+	filter: brightness(0) invert(1);
 }
 
 body[data-theme="dark"] header {
-  background-color: var(--neutral-700);
+	background-color: var(--neutral-700);
+	border: 1px solid var(--neutral-600);
 }
 
 #logo-text {
-  fill: var(--neutral-900); /* Your dark color */
+	fill: var(--neutral-900); /* Your dark color */
 }
 
 body[data-theme="dark"] #logo-text {
-  fill: var(--neutral-100); /* Light color for dark theme */
+	fill: var(--neutral-100); /* Light color for dark theme */
 }
 
 body[data-theme="dark"] #toggle-theme-btn {
-  background-color: var(--neutral-600);
+	background-color: var(--neutral-600);
+}
+
+#theme-icon {
+	width: 24px;
+	height: 24px;
+	background-image: url("./assets/images/icon-moon.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	aria-label: "Toggle theme";
+	role: "img";
+}
+
+body[data-theme="dark"] #theme-icon {
+	background-image: url("./assets/images/icon-sun.svg");
 }
 
 #extension-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 64px;
+}
+
+@media (max-width: 600px) {
+	#extension-list {
+		flex-direction: column;
+		gap: 16px;
+	}
 }
 
 #extension-filters {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 button[type="button"] {
-  border: 1px solid var(--neutral-300);
-  background-color: var(--neutral-100);
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
+	border: 1px solid hsl(220, 20%, 88%);
+	background-color: var(--neutral-0);
+	padding: 8px 16px;
+	border-radius: 10px;
+	cursor: pointer;
+	color: var(--neutral-600);
+	font-weight: 500;
 }
 
-body[data-theme="dark"] button[type="button"] {
-  background-color: var(--neutral-700);
-  border: 1px solid var(--neutral-600);
-  color: var(--neutral-0);
+button[type="button"]:hover {
+	border: 1px solid var(--neutral-300);
+	background-color: var(--red-500);
+	color: var(--neutral-0);
 }
 
 button[type="button"].active {
-  color: var(--neutral-0);
-  background-color: var(--red-500);
-  font-weight: 700;
+	color: var(--neutral-0);
+	background-color: var(--red-500);
+	font-weight: 700;
 }
 
 body[data-theme="dark"] button[type="button"].active {
-  color: var(--neutral-800);
-  background-color: var(--red-500);
-  border: 1px solid var(--neutral-600);
+	color: var(--neutral-800);
+	background-color: var(--red-500);
+	border: 1px solid var(--neutral-600);
+}
+
+body[data-theme="dark"] button[type="button"] {
+	background-color: var(--neutral-700);
+	border: 1px solid var(--neutral-600);
+	color: var(--neutral-200);
+}
+
+body[data-theme="dark"] button[type="button"]:hover {
+	border: 1px solid var(--neutral-300);
+	background-color: var(--red-500);
+	color: var(--neutral-0);
+}
+
+/* EXTENSION */
+
+#grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	align-items: center;
+	margin-top: 32px;
+	gap: 24px;
+	padding: 12px 0;
+}
+
+@media (max-width: 320px) {
+	#grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+#extension {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--neutral-0);
+	gap: 32px;
+	padding: 16px;
+	border-radius: 16px;
+	height: auto;
+	border: 1px solid hsl(220, 20%, 90%);
+}
+
+body[data-theme="dark"] #extension {
+	background-color: var(--neutral-700);
+	border: 1px solid var(--neutral-600);
+}
+
+.extension-info {
+	display: flex;
+	gap: 12px;
+}
+
+.extension-info img {
+	flex-shrink: 0;
+	border-radius: 8px;
+	object-fit: cover;
+}
+
+.extension-options {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.extension-description {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.3;
+	text-align: justify;
+}
+
+body[data-theme="dark"] .extension-description {
+	color: var(--neutral-200);
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 44px;
+	height: 24px;
+}
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
+	border-radius: 24px;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 18px;
+	width: 18px;
+	left: 3px;
+	bottom: 3px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background-color: var(--red-500);
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px var(--red-500);
+}
+
+input:checked + .slider:before {
+	transform: translateX(20px);
 }
