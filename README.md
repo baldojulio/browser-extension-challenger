@@ -17,3 +17,4 @@ Users should be able to:
 
 ### Screenshot
 
+<img width="600" height="600" alt="screencapture-baldojulio-github-io-browser-extension-challenger-2025-08-29-15_02_21" src="https://github.com/user-attachments/assets/61213432-8b09-4fb0-ad0c-81b2288f209d" />
